@@ -7,7 +7,7 @@ def lambda_handler(event, context):
   if 'queryStringParameters' in event:
     if 'url' in event["queryStringParameters"]:
       url = event["queryStringParameters"]["url"]
-    
+  print ("Making GET request to: ", url)  
   request = AWSRequest(method="GET", url=url, headers=headers)
   session = URLLib3Session()
   res = session.send(request.prepare())
