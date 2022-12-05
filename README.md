@@ -26,5 +26,3 @@ terraform apply
 - run test and verify if the request from Lambda in VPC2 to the NLB in VPC1 is successful.
 
 # References
-
-https://aws.amazon.com/blogs/networking-and-content-delivery/building-an-egress-vpc-with-aws-transit-gateway-and-the-aws-cdk/
