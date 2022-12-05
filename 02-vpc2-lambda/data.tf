@@ -13,4 +13,5 @@ locals {
   vpc2_id = data.terraform_remote_state.base.outputs.vpc2_id
   vpc2_protected_subnet_ids = data.terraform_remote_state.base.outputs.vpc2_protected_subnet_ids
   super_cidr_block = data.terraform_remote_state.base.outputs.super_cidr_block
+  vpc1_nlb_dns_name = data.terraform_remote_state.base.outputs.vpc1_nlb_dns_name
 }

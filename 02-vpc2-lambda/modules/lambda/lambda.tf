@@ -54,7 +54,7 @@ resource "random_string" "random" {
 data "archive_file" "vpc2_test_lambda" {
   type = "zip"
   source_dir = "${path.module}/lambda/"
-  output_path = "${path.module}/lambda/vpc2-test-lambda.zip"
+  output_path = "${path.module}/vpc2-test-lambda.zip"
 }
 
 resource "aws_security_group" "vpc2_test_lambda_sg" {
@@ -91,5 +91,10 @@ resource "aws_lambda_function" "vpc2_test_lambda" {
   vpc_config {
     subnet_ids = var.subnet_ids
     security_group_ids = [aws_security_group.vpc2_test_lambda_sg.id]
+  }
+  environment {
+    variables = {
+      TARGET_URL = var.target_url
+    }
   }
 }

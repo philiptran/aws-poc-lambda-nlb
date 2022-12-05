@@ -1,12 +1,10 @@
+import os
 from botocore.awsrequest import AWSRequest
 from botocore.endpoint import URLLib3Session
 
 headers = {}
 def lambda_handler(event, context):
-  url = 'https://www.amazon.com'
-  if 'queryStringParameters' in event:
-    if 'url' in event["queryStringParameters"]:
-      url = event["queryStringParameters"]["url"]
+  url = os.getenv('TARGET_URL', 'https://www.amazon.com')
   print ("Making GET request to: ", url)  
   request = AWSRequest(method="GET", url=url, headers=headers)
   session = URLLib3Session()

@@ -13,4 +13,9 @@ variable "subnet_ids" {
   type = list  
 }
 
+variable "target_url" {
+  description = "Target url to pass to lambda's envrionment variable"
+  type = string
+}
+
 data "aws_region" "current" {}
